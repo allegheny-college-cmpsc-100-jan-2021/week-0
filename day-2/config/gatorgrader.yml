@@ -1,0 +1,37 @@
+---
+name: cmpsc-100-week-0-day-2
+break: true
+indent: 4
+---
+
+0_week-0-worksheet-while-loops.ipynb:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+    MatchFileFragment --fragment "while number" --count 1 --exact
+    MatchFileFragment --fragment "int(number)" --count 1
+    MatchFileFragment --fragment "str(count)" --count 1
+    MatchFileFragment --fragment "str(sum)" --count 1
+
+1_week-0-worksheet-for-loops.ipynb:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+    MatchFileFragment --fragment "well_production = [1440, 1750, 1230, 980, 1900, 1475, 730]" --count 1 --exact
+    MatchFileFragment --fragment "for day in well_production" --count 1 --exact
+    MatchFileFragment --fragment "for name in cat_names" --count 4 --exact
+
+f1_week-0-worksheet-back-to-the-store.py:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+    MatchFileFragment --fragment "for item in shopping_list" --count 1 --exact
+    MatchFileFragment --fragment "store_inventory[item][" --count 3
+    MatchFileFragment --fragment "for item in store_inventory" --count 1 --exact
+
+MatchCommandFragment --command "python3 1_week-0-worksheet-for-loops.py < .inputs/.worksheet-1-inputs" --fragment "You have a below average well" --count 1 --exact
+MatchCommandFragment --command "python3 0_week-0-worksheet-while-loops.py < .inputs/.worksheet-0-inputs" --fragment "The sum of these 6 numbers -> 108" --count 1 --exact
+CountCommandOutput --command "python3 f1_week-0-worksheet-back-to-the-store.py" --count 7
+MatchCommandFragment --command "python3 f1_week-0-worksheet-back-to-the-store.py" --fragment "5.53" --count 1 --exact
+MatchCommandFragment --command "python3 f1_week-0-worksheet-back-to-the-store.py" --fragment "5.9" --count 1 --exact
+MatchCommandFragment --command "python3 f1_week-0-worksheet-back-to-the-store.py" --fragment "19" --count 1
+MatchCommandFragment --command "python3 f1_week-0-worksheet-back-to-the-store.py" --fragment "11" --count 2
+MatchCommandFragment --command "python3 f1_week-0-worksheet-back-to-the-store.py" --fragment "9" --count 1
+MatchCommandFragment --command "python3 f1_week-0-worksheet-back-to-the-store.py" --fragment "48" --count 1

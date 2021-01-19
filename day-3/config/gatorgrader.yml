@@ -1,0 +1,23 @@
+---
+name: cmpsc-100-week-0-lab
+break: true
+indent: 4
+---
+
+week-0-lab.py:
+    ConfirmFileExists
+    MatchFileFragment --fragment "for" --count 1 --exact
+    MatchFileFragment --fragment "ballot[" --count 1
+    MatchFileFragment --fragment "while" --count 1
+    MatchFileFragment --fragment "input(" --count 1
+    MatchFileFragment --fragment "ballot = {}" --count 1
+
+writing/reflection.md:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+    CountFileWords --count 300
+    CountFileParagraphs --count 6
+
+MatchCommandFragment --command "python3 week-0-lab.py < .inputs/.votes" --fragment "The winner is G. Wiz -- with 105 votes." --count 1 --exact
+MatchCommandFragment --command "python3 week-0-lab.py < .inputs/.votes" --fragment "Prof. Luman received 1 votes." --count 1 --exact
+MatchCommandFragment --command "python3 week-0-lab.py < .inputs/.votes" --fragment "Ulysses received 1 votes." --count 1 --exact

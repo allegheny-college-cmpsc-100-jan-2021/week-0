@@ -1,0 +1,26 @@
+---
+name: cmpsc-100-week-0-day-0
+break: true
+indent: 4
+---
+
+ssh/id_rsa:
+    ConfirmFileExists
+
+cage/the_maltese_python!:
+    ConfirmFileExists
+
+2_week-0-worksheet-basic-terminal.ipynb:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+
+3a_week-0-worksheet-markdown.md:
+    ConfirmFileExists
+    CountMarkdownTags --tag "heading" --count 3
+    CountMarkdownTags --tag "list" --count 2
+    CountMarkdownTags --tag "image" --count 1
+    CountFileParagraphs --count 1
+    
+f1_week-0-platforms-final-activity.ipynb:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
