@@ -4,9 +4,6 @@ break: true
 indent: 4
 ---
 
-ssh/id_rsa:
-    ConfirmFileExists
-
 cage/the_maltese_python!:
     ConfirmFileExists
 

@@ -94,9 +94,9 @@ task rmln(type: Exec) {
 //build.dependsOn cleanup
 //build.dependsOn convert
 //build.dependsOn rename
-grade.dependsOn makeln
+//grade.dependsOn makeln
 //grade.dependsOn cleanup
 //grade.dependsOn convert
 //grade.dependsOn rename
-grade.finalizedBy rmln
+//grade.finalizedBy rmln
 //grade.finalizedBy teardown
