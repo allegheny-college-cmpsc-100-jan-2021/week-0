@@ -82,10 +82,10 @@ task teardown(type: Exec) {
   commandLine "sh",".cleanup.sh"  
 }
 
-build.dependsOn cleanup
-build.dependsOn convert
-build.dependsOn rename
-grade.dependsOn cleanup
-grade.dependsOn convert
-grade.dependsOn rename
-grade.finalizedBy teardown
+//build.dependsOn cleanup
+//build.dependsOn convert
+//build.dependsOn rename
+//grade.dependsOn cleanup
+//grade.dependsOn convert
+//grade.dependsOn rename
+//grade.finalizedBy teardown
