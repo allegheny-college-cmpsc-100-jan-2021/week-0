@@ -1,67 +1,129 @@
-# Worksheet 0.0.f2: G. Wiz and the lousy lottery
+# Worksheet 0.0.5: "Committing" to a repository
 
-![Paper chase](https://raw.githubusercontent.com/allegheny-college-sandbox/cmpsc-100-spring-2020-lab-04/media/media/g-wiz-lousy-lottery.png)
+<div class="alert alert-block alert-warning">
+    <p>This activity only works if we're in our JupyterLab environment. If you haven't finished the <a href = '1_week-0-worksheet-github-clone.md'>"Cloning" a repository</a> worksheet, please do so now.
+</div>
+ 
+We'll learn about the final steps we will take on a weekly basis to turn in or save work.
 
-## Overview
+## Table of contents
+---
+
+* [Revisiting "repositories"](#Revisiting-"repositories")
+* [Configuring your `git` settings](#Configuring-your-git-settings)
+* ["Committing" to a repository](#"Committing"-to-a-repository)
+* [Finishing this activity](#Finishing-this-activity)
+
+## Revisiting "repositories"
 
 ---
 
-G. Wiz is a wizard. A gator wizard, but still a wizard. And, they're a wizard who likes fancy wizard hats (like many). To fund their hat obsession, they play the Gator Kingdom Lottery frequently. And, after losing for many, many weeks, they decided to do someting slightly less-than-ethical. They dug out their crystal ball and predicted the lottery numbers.
+Recall how we talked about repositories as "snapshots" of files at a given time? We're going to make a snapshot in this activity.
 
-Needless to say, they won this week. However, they didn't take a look at the prize pool and won substantially less than hoped for: only $1000; still a non-trivial sum (to be fair).
+One thing I want to make clear first: you make as many of these "snapshots" of a repository as you want. I will only ever evaluate the latest one submitted before the deadline. Create them early and often. To make sure you see my red-boxed warning at the bottom of the [README](../README.md):
 
-But, to add to their list of woes: G. Wiz isn't so good with money. They forgot that the Gator Kingdom charges a 9% tax on lottery winnings, so they take home just a bit less than the advertised number. Regardless, G. Wiz took a trip to the office to claim their prize and was still feeling a bit excited to be so flush with cash on the way home.
+<div class="alert alert-block alert-danger">
+    <p><strong>While we may use this server to store code, <u>you</u> are responsible for using GitHub as your main backup.</strong></p>
+    <p>While I back this server up on a regular basis, I cannot guarantee that I'll have the ability to restore up-to-the-minute data for your work.</p>
+    <p>Remember: to err is human; to back up your work is divine.</p>
+</div>
 
-Braving the soon-to-be autumnal cold, some CrocScouts outside a magazine stand were advertising cookies for $10.00 a box. Being expert marketers, the CrocScouts drove a hard bargain with our gator friend and managed to sell them 5 boxes.
+So, use GitHub as a backup service for all of your work. This worksheet covers how you'll do that.
 
-Having paid the scouts, the latest edition of the gossip magazine _The Clawparazzi_ caught G. Wiz's eye from the far side of the magazine rack. Ever a conaisseur of the latest celebrity gossip, they bought an issue for the $5.00 cover price, and had to pay the same 9% sales tax on top of that.
-
-Just minutes after arriving home, they heard a knock at the door -- a few of G. Wiz's friends (Slippy Toad, Frogger, and Chompers) stopped by to honor an old promise that if any one of them ever won the Gator Kingdom lottery, they'd split it 4 ways. (In the Gator Kingdom, the lottery winner's name is published the day of the drawing, and G. Wiz's friends are avid players.)
-
-Finally settling down to count what was left over, G. Wiz needs to determine if they can afford a $215.00 hat (don't forget the tax!).
-
-And where do you come in? You can help G. Wiz account for everything they've paid out by making a ledger that lists each of their transactions and comes to the final conclusion as to whether or not they can afford their hat. Such a ledger looks like the following, with each of the `######` replaced by the actual expenditures plus a last line printing the amount that they have left.
-
-### Required output
-
-```
-How G. Wiz spent their lottery money
-Initial amount: 1000.0
-Taxes paid: ######
-CrocScout cookies: ######
-Latest Clawparazzi: ######
-Owed to friends: ######
-Amount remaining: ######
-```
-
-### tl;dr
-
-* G. Wiz is a wizard.
-  * Very important
-* They predicted the winning lottery numbers this week.
-* They won `$1000`.
-* The lottery charges a `9%` tax on all winnings
-* After getting their winnings, they bought `5` boxes of CrocScout cookies at `$10.00` each (no tax -- it's for a good cause, after all)
-* G. Wiz loves Gator Kingdom gossip; buys a _Clawparazzi_ for `$5.00` (don't forget `9%` tax!)
-* 3 friends came over, reminded G. Wiz of their obligation to split the winnings equally
-
-Bottom line: can G. Wiz afford a `$215.00` hat?
-
-Your job is to write a program that keeps track of all these transations in variables and poses the question is some _total amount_ left over _greater than_ `215.00`?
-
-### Evaluation
-
-This work will be evaluated on completeness and correctness. This means:
-
-* `0` `TODO` markers
-* At least `7` `print` statements
-* At least `6` `str` statements (to print calculation results)
-* Correct output -- given in the grader readout
-
-## Notes
+## Configuring your `git` settings
 
 ---
 
-This work should be completed in the [f2_week-0-worksheet-lousy-lottery.py](f2_week-0-worksheet-lousy-lottery.py) file. Recall that, during class, this is the way Python development is largely done. While we will still use notebooks like worksheets, when it comes to to real programming jobs, we're going to start getting the habit of programming real programs in `*.py` files.
+GitHub will let you `clone` repositories without really knowing who you are. To assign your name to the work you've done, though, it's is a different story.
 
-There's already some code in the file to get you started.
+In your terminal tab run the following commands (they are separate):
+
+### To set your email address/identity
+```
+git config --global user.email "YOUR ALLEGHENY EMAIL"
+```
+
+### To set the name to display
+```
+git config --global user.name "YOUR GITHUB USERNAME"
+```
+
+## "Committing" to a repository
+
+To be up-front: we use the word "commit" to describe a multi-step process of which the `commit` command is one part. However, we call the whole process `committing`.
+
+There are three (3) parts in this process:
+
+1. Adding files to "stage" a `commit`
+2. Packaging a `commit` and labeling it with a descriptive message
+3. `push`ing a `commit` to GitHub
+
+<div class="alert alert-block alert-warning">
+To perform this process, you must be in the main folder of your repository. For this exercise that means your <b>cmpsc-100-jan-2020-week-0...</b> main folder. If you use the <b>pwd</b> command, the output should reflect this.
+</div>
+
+### `add`ing files to "stage" a `commit`
+
+In your terminal tab, type `git add .`
+
+This command reads:
+
+* `git` (program)
+* `add` (command)
+* `.` (all files)
+
+Here, insofar as output goes, no news is good news: you shouldn't see anything.
+
+### Packaging a `commit` and labeling it with a descriptive message
+
+In your terminal, type:
+
+```
+git commit -m "DESCRIPTIVE COMMIT MESSAGE"
+```
+
+This command reads:
+
+* `git` (program)
+* `commit` (command)
+* `-m` (flag, for `message`)
+* `"YOUR DESCRIPTIVE MESSAGE"` (a message to display on GitHub)
+
+<div class="alert alert-block alert-info">
+    <b>Tip:</b> Please, please, please, always replace <b>DESCRIPTIVE COMMIT MESSAGE</b> with something different and...erm...actually <em>descriptive</em>.
+</div>
+
+The output of this message should look something like this:
+
+```
+dluman@jupyter-cs-allegheny-edu:~/week-0$ git commit -m "Updating files"
+[main ed903d9] Updating files
+ 1 file changed, 10 insertions(+), 13 deletions(-)
+```
+
+That show that you put in some real #work.
+
+This packages and "stages" the `commit` for transmission to GitHub -- the last step.
+
+### `push`ing a `commit` to GitHub
+
+Once you've staged it, type `git push`. The result should resemble:
+
+```
+Enter passphrase for key '/home/_faculty/dluman/.ssh/id_rsa': 
+Enumerating objects: 31, done.
+Counting objects: 100% (31/31), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (18/18), 3.70 KiB | 1.23 MiB/s, done.
+Total 18 (delta 10), reused 0 (delta 0)
+remote: Resolving deltas: 100% (10/10), completed with 10 local objects.
+To github.com:allegheny-college-sandbox/cmpsc-100-jan-2021-week-0.git
+   e11834b..6064554  main -> main
+```
+
+The process will ask you to provide the password for your SSH key, and once that's done -- your work is on its way!
+
+## Finishing this activity
+
+Verify that your changes made it to your repository by visiting GitHub and clicking on your `cmpsc-100-fall-2020-week-00...` repository. You should see your name _and_ your message! If that's what you see -- you're done!

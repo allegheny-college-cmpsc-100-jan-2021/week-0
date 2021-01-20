@@ -26,12 +26,6 @@ You don't need to do anything to get it -- I will distribute all the files you n
 * Grading criteria _never_ changes
 * The criteria is very specific; you will know what changes you need to make
 
-This application runs in your terminal tab, and can grade:
-
-* The whole repository
-* Just worksheets
-* Just the lab
-
 ## Checking your work
 
 ---
@@ -53,7 +47,7 @@ If you don't already have a terminal tab open, open one now.
 
 ### Grading worksheets
 
-1. From your terminal, `cd` to the `worksheets` directory.
+1. From your terminal, `cd` to the `platforms` directory.
 2. In your terminal, type `gradle grade`
 
 The output of your command should look like the following:
